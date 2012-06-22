@@ -11,11 +11,13 @@ form.password = password
 form.submit
 agent.page.links[3]
 agent.page.links[3].click
-agent.get("http://3g.renren.com/gossip/wgetgossiplist.do?id=272290792&sid=vQVogCw2EovPbgNdPULm52&spf12b&htf=42")
+#These Url should change for specific page.
+agent.get("http://3g.renren.com/gossip/wgetgossiplist.do?id=********&sid=vQVogCw2EovPbgNdPULm52&spf12b&htf=42")
 p = []
 1..1511.times do |i|
   #agent.page.links[28].click #Bug @ here
-  agent.get("http://3g.renren.com/gossip/wgetgossiplist.do?curpage=#{i}&id=272290792&age=recent&sid=vQVogCw2EovPbgNdPULm52&sxlo51")
+  #Below url should change to a better way.
+   agent.get("http://3g.renren.com/gossip/wgetgossiplist.do?curpage=#{i}&id=********&age=recent&sid=vQVogCw2EovPbgNdPULm52&sxlo51")
   line = agent.page.search("div").map(&:text).map(&:strip)
   p += line[5..14]
   print ">" if i%151 == 0
